@@ -8,5 +8,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './courses.css',
 })
 export class Courses {
+window: any;
 
 }
