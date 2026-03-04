@@ -8,5 +8,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './course-details.css',
 })
 export class CourseDetails {
+  ngOnInit() {
+    // * as section opened the scroll move to top of sec
+    window.scrollTo(0, 0);
+  }
 
 }
