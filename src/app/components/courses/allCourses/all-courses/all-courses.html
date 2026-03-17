@@ -21,7 +21,7 @@
         <!-- Filters -->
         <div class="mb-10 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-[2rem] shadow-xl dark:shadow-yellow-500/5 p-5">
             <div class="flex flex-col lg:flex-row gap-4 items-stretch lg:items-end justify-between">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 flex-1">
                     <label class="text-right">
                         <div class="text-sm font-black text-zinc-900 dark:text-white mb-2">الفئة</div>
                         <select [formControl]="categoryCtrl"
@@ -35,14 +35,6 @@
                         <select [formControl]="levelCtrl"
                             class="w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-black/20 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white font-bold focus:outline-none focus:ring-2 focus:ring-yellow-500">
                             <option *ngFor="let l of levels" [value]="l">{{ l }}</option>
-                        </select>
-                    </label>
-
-                    <label class="text-right">
-                        <div class="text-sm font-black text-zinc-900 dark:text-white mb-2">ترتيب السعر</div>
-                        <select [formControl]="priceSortCtrl"
-                            class="w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-black/20 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white font-bold focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                            <option *ngFor="let s of priceSorts" [value]="s.value">{{ s.label }}</option>
                         </select>
                     </label>
                 </div>
