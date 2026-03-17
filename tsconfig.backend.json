@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "types": ["node"],
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "models/**/*.ts",
+    "controllers/**/*.ts",
+    "routes/**/*.ts",
+    "src/config/**/*.ts",
+    "src/server.ts"
+  ],
+  "exclude": [
+    "src/app/**",
+    "src/**/*.spec.ts"
+  ]
+}
+

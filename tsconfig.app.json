@@ -12,6 +12,11 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "src/**/*.spec.ts"
+    "src/**/*.spec.ts",
+    "dev/**",
+    "models/**",
+    "routes/**",
+    "controllers/**",
+    "scripts/**"
   ]
 }

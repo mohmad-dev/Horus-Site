@@ -4,9 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "concurrently -n \"API,WEB\" -c \"yellow,cyan\" \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "tsx dev/api-server.ts",
+    "dev:web": "set SSR_DISABLE_API=1&& ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "start:prod": "node dist/Horus-Site/server/server.mjs",
     "serve:ssr:Horus-Site": "node dist/Horus-Site/server/server.mjs"
   },
   "prettier": {
@@ -33,11 +38,15 @@
     "@angular/ssr": "^20.3.18",
     "@fortawesome/fontawesome-free": "^7.2.0",
     "@tailwindcss/postcss": "^4.2.1",
+    "dotenv": "^17.3.1",
     "express": "^5.1.0",
+    "mongoose": "^9.3.0",
     "postcss": "^8.5.6",
     "rxjs": "~7.8.0",
+    "slugify": "^1.6.8",
     "tailwindcss": "^4.2.1",
     "tslib": "^2.3.0",
+    "zod": "^4.3.6",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -47,12 +56,15 @@
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
+    "concurrently": "^9.2.1",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "~5.9.2"
   }
 }

@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
@@ -23,6 +24,23 @@ const angularApp = new AngularNodeAppEngine();
  * });
  * ```
  */
+
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true, limit: '1mb' }));
+
+// In local dev we run the API as a separate process (see `npm run dev`).
+// This flag prevents the Angular SSR dev server from importing backend/db code.
+const apiEnabled = process.env['SSR_DISABLE_API'] !== '1';
+let connectDB: undefined | (() => Promise<unknown>);
+
+if (apiEnabled) {
+  const [{ default: apiRouter }, db] = await Promise.all([
+    import('../routes/api'),
+    import('./config/db'),
+  ]);
+  connectDB = db.connectDB;
+  app.use(apiRouter);
+}
 
 /**
  * Serve static files from /browser
@@ -53,12 +71,20 @@ app.use((req, res, next) => {
  */
 if (isMainModule(import.meta.url) || process.env['pm_id']) {
   const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
 
-    console.log(`Node Express server listening on http://localhost:${port}`);
+  (async () => {
+    if (connectDB) await connectDB();
+
+    app.listen(port, (error) => {
+      if (error) {
+        throw error;
+      }
+
+      console.log(`Node Express server listening on http://localhost:${port}`);
+    });
+  })().catch((err) => {
+    console.error('Failed to start server', err);
+    process.exit(1);
   });
 }
 

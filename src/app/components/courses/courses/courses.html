@@ -1,260 +1,3 @@
-<!-- <section id="courses" class="py-24 mt-28 bg-zinc-50 dark:bg-black transition-colors duration-500 overflow-hidden cursor-pointer">
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="flex flex-col justify-center items-center gap-2 mb-12 text-center">
-            <h2 class="text-yellow-600 dark:text-yellow-500 font-bold uppercase tracking-widest text-sm">
-                Our Courses
-            </h2>
-            <h2 class="text-4xl md:text-5xl text-zinc-900 dark:text-white font-black tracking-tight">
-                Our Courses
-            </h2>
-            <div class="w-20 h-1.5 bg-yellow-500 rounded-full mt-4"></div>
-        </div>
-
-        <div class="flex justify-center mb-16">
-            <ul class="flex flex-wrap justify-center items-center gap-4 md:gap-8 py-3 px-8 bg-white dark:bg-zinc-900 shadow-xl dark:shadow-yellow-500/5 rounded-full border border-zinc-100 dark:border-zinc-800">
-                <li class="font-bold text-zinc-800 dark:text-zinc-200 capitalize hover:text-yellow-600 dark:hover:text-yellow-500 cursor-pointer transition-colors" data-filter="All">All</li>
-                <li class="font-bold text-zinc-800 dark:text-zinc-200 capitalize hover:text-yellow-600 dark:hover:text-yellow-500 cursor-pointer transition-colors" data-filter="Webdesign">Web Design</li>
-                <li class="font-bold text-zinc-800 dark:text-zinc-200 capitalize hover:text-yellow-600 dark:hover:text-yellow-500 cursor-pointer transition-colors" data-filter="Development">Development</li>
-                <li class="font-bold text-zinc-800 dark:text-zinc-200 capitalize hover:text-yellow-600 dark:hover:text-yellow-500 cursor-pointer transition-colors" data-filter="Wordpress">Wordpress</li>
-            </ul>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 overflow-hidden">
-
-            <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $160
-                </div>
-
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 shadow-sm border border-zinc-200/50 dark:border-zinc-700">
-                    Computer Basic
-                </div>
-
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/computer_basic.jpg" alt="Web Design"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-                </div>
-
-                <div class="p-8">
-            
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                        Computer Basic
-                    </h2>
-
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $340</div>
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">Thinking</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/thinking.jpg"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8">
-                    
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                        Computational Thinking </h2>
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $640</div>
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    Scratch</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/Scratch.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8"> 
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                        Scratch Programming</h2>
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $640</div>
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    Python</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/python.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8"> 
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                        Python Programming</h2>
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $640</div>
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    Math</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/math.jpeg"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8"> 
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                        Math for Programming</h2>
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-             <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $640</div>
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    Data Structure</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/datatStructure.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8"> 
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                        Data Structure</h2>
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-             <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $640</div>
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    Algorithms</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/algorithms.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8"> 
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                        Algorithms</h2>
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-             <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $640</div>
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    C++</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/c++.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8"> 
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                        C++ Programming</h2>
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-             <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 right-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-bl-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $640</div>
-                <div
-                    class="absolute top-5 left-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    Tracks</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/tracks.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8"> 
-                    <h2
-                        class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                         Programming Tracks</h2>
-                    <a routerLink="/course-details"
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        Read More
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section> -->
-
-
 <section id="courses" dir="rtl"
     class="py-24 mt-28 bg-zinc-50 dark:bg-black transition-colors duration-500 overflow-hidden cursor-pointer">
     <div class="max-w-7xl mx-auto px-6">
@@ -283,82 +26,44 @@
             </ul>
         </div> -->
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 overflow-hidden">
+        <ng-container *ngIf="courses$ | async as courses; else loading">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 overflow-hidden">
+                <div *ngFor="let course of courses; trackBy: trackById"
+                    class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
 
-            <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 left-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-br-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $160
-                </div>
+                    <div
+                        class="absolute top-0 left-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-br-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
+                        {{ course.price }}$
+                    </div>
 
-                <div
-                    class="absolute top-5 right-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 shadow-sm border border-zinc-200/50 dark:border-zinc-700">
-                    أساسيات الحاسوب
-                </div>
+                    <div
+                        class="absolute top-5 right-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 shadow-sm border border-zinc-200/50 dark:border-zinc-700">
+                        {{ course.category }}
+                    </div>
 
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/computer_basic.jpg" alt="Computer Basic"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
+                    <div class="relative w-full h-64 overflow-hidden">
+                        <img [src]="course.imageUrl" [alt]="course.title"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
 
-                <div class="p-8 text-right">
-                    <h2 class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 transition-colors">
-                        دورة أساسيات الحاسوب
-                    </h2>
-                    <a routerLink="/course-details" 
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        عرض التفاصيل
-                        <i class="fa-solid fa-arrow-left text-sm"></i> </a>
+                    <div class="p-8 text-right">
+                        <h2 class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 transition-colors">
+                            {{ course.title }}
+                        </h2>
+                        <a [routerLink]="['/course-details', course.slug]"
+                            class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
+                            عرض التفاصيل
+                            <i class="fa-solid fa-arrow-left text-sm"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 left-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-br-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $340</div>
-                <div
-                    class="absolute top-5 right-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    التفكير المنطقي</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/thinking.jpg"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8 text-right">
-                    <h2 class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 transition-colors">التفكير
-                        الحسابي والبرمجي</h2>
-                    <a routerLink="/course-details" 
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        عرض التفاصيل
-                        <i class="fa-solid fa-arrow-left text-sm"></i>
-                    </a>
-                </div>
+        </ng-container>
+        <ng-template #loading>
+            <div class="text-center text-zinc-600 dark:text-zinc-300 font-semibold py-12">
+                جاري تحميل الدورات...
             </div>
-
-            <div
-                class="group relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-lg hover:shadow-2xl rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="absolute top-0 left-0 bg-yellow-500 text-black font-black flex items-center justify-center w-24 h-16 rounded-br-[2.5rem] text-xl z-20 transition-transform group-hover:scale-105">
-                    $640</div>
-                <div
-                    class="absolute top-5 right-5 bg-white/90 dark:bg-black/80 backdrop-blur-md text-zinc-900 dark:text-yellow-500 text-xs font-bold px-4 py-2 rounded-full z-20 border border-zinc-200/50 dark:border-zinc-700">
-                    سكراتش</div>
-                <div class="relative w-full h-64 overflow-hidden">
-                    <img src="/assets/images/coursesImgs/Scratch.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="p-8 text-right">
-                    <h2 class="text-2xl text-yellow-600 dark:text-yellow-500 font-bold mb-6 transition-colors">برمجة
-                        باستخدام سكراتش</h2>
-                    <a routerLink="/course-details" 
-                        class="w-full py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-black transition-all duration-300">
-                        عرض التفاصيل
-                        <i class="fa-solid fa-arrow-left text-sm"></i>
-                    </a>
-                </div>
-            </div>  
-        </div>
+        </ng-template>
 
         <div class="mt-16 flex justify-center">
             <a routerLink="/all-courses" 

@@ -1,0 +1,83 @@
+<section dir="rtl" class="min-h-screen pt-32 mt-28 pb-16 bg-zinc-50 dark:bg-black transition-colors duration-500">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
+      <div class="text-right">
+        <h1 class="text-3xl md:text-4xl font-black text-zinc-900 dark:text-white">لوحة الإدارة</h1>
+        <p class="text-zinc-600 dark:text-zinc-400 mt-2">طلبات التسجيل (Leads) — الأحدث أولاً</p>
+      </div>
+
+      <div class="flex items-center gap-3 justify-end">
+        <a routerLink="/" class="px-5 py-3 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white font-bold hover:border-yellow-500 transition-colors">
+          الرجوع للموقع
+        </a>
+        <button (click)="logout()" class="px-5 py-3 rounded-2xl bg-yellow-500 text-black font-black hover:bg-yellow-600 transition-colors">
+          تسجيل الخروج
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="mb-6 p-4 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-700 dark:text-red-400 font-semibold text-right">
+      {{ errorMessage }}
+    </div>
+
+    <ng-container *ngIf="leads$ | async as leads; else loading">
+      <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-[2rem] shadow-xl overflow-hidden">
+        <div class="px-6 py-5 border-b border-zinc-100 dark:border-zinc-800 flex items-center justify-between">
+          <div class="font-black text-zinc-900 dark:text-white">عدد الطلبات: {{ leads.length }}</div>
+          <div class="text-sm text-zinc-500 dark:text-zinc-400">GET /api/admin/enrollments</div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-right">
+            <thead class="bg-zinc-50 dark:bg-black/20">
+              <tr class="text-zinc-700 dark:text-zinc-300 text-sm font-black">
+                <th class="px-6 py-4 whitespace-nowrap">اسم الطالب</th>
+                <th class="px-6 py-4 whitespace-nowrap">رقم الهاتف</th>
+                <th class="px-6 py-4 whitespace-nowrap">الكورس</th>
+                <th class="px-6 py-4 whitespace-nowrap">التاريخ</th>
+                <th class="px-6 py-4 whitespace-nowrap">إجراء</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let lead of leads; let i = index" class="border-t border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50/60 dark:hover:bg-black/20 transition-colors">
+                <td class="px-6 py-4 font-bold text-zinc-900 dark:text-white whitespace-nowrap">
+                  {{ lead.studentName }}
+                </td>
+                <td class="px-6 py-4 text-zinc-700 dark:text-zinc-300 whitespace-nowrap" dir="ltr">
+                  {{ lead.phoneNumber }}
+                </td>
+                <td class="px-6 py-4 text-zinc-700 dark:text-zinc-300 whitespace-nowrap">
+                  {{ lead.courseSlug }}
+                </td>
+                <td class="px-6 py-4 text-zinc-600 dark:text-zinc-400 whitespace-nowrap">
+                  {{ lead.createdAt | date:'yyyy/MM/dd - HH:mm' }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <button
+                    (click)="copyPhone(lead)"
+                    class="px-4 py-2 rounded-xl bg-yellow-500 text-black font-black hover:bg-yellow-600 transition-colors"
+                  >
+                    {{ copiedId === lead._id ? 'تم النسخ' : 'نسخ الرقم' }}
+                  </button>
+                </td>
+              </tr>
+
+              <tr *ngIf="leads.length === 0">
+                <td colspan="5" class="px-6 py-12 text-center text-zinc-600 dark:text-zinc-300 font-semibold">
+                  لا توجد طلبات حتى الآن.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #loading>
+      <div class="text-center text-zinc-600 dark:text-zinc-300 font-semibold py-12">
+        جاري تحميل الطلبات...
+      </div>
+    </ng-template>
+  </div>
+</section>
+

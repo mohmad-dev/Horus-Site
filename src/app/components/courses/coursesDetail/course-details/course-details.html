@@ -1,90 +1,3 @@
-<!-- <section  class="min-h-screen pt-32 mt-28 pb-16 bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
-  <div class="max-w-5xl mx-auto px-6">
-    
-    <a routerLink="/courses" class="inline-flex items-center gap-2 text-zinc-900 dark:text-white text-xl font-semibold hover:text-yellow-500 mb-8 transition-colors group">
-      <i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-2"></i> Back to Courses
-    </a>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div class="rounded-[3rem] overflow-hidden shadow-2xl border border-zinc-100 dark:border-zinc-800 h-fit">
-        <img src="/assets/images/coursesImgs/tracks.png" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="Course Image">
-      </div>
-     <h1>course name</h1>
-      <div class="space-y-8">
-        <div>
-          <span class="px-4 py-2 bg-yellow-500/10 text-yellow-600 dark:text-yellow-500 rounded-full text-xs font-bold border border-yellow-500/20 uppercase tracking-widest">
-            Level 0 – Mandatory
-          </span>
-          <h1 class="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white leading-tight mt-4">
-            Computer Basics
-          </h1>
-          <p class="text-zinc-500 dark:text-zinc-400 mt-2 flex items-center gap-2 font-medium">
-            <i class="fa-regular fa-clock text-yellow-500"></i> Duration: 1 – 1.5 Months
-          </p>
-        </div>
-
-        <h1>instructor brief</h1>
-        <div class="flex items-center gap-4 py-6 border-y border-zinc-100 dark:border-zinc-800">
-          <img src="/assets/images/instructors/rabab.jpg" class="w-14 h-14 rounded-2xl border-2 border-yellow-500 object-cover" alt="Instructor">
-          <div>
-            <p class="text-zinc-500 dark:text-zinc-400 text-xs uppercase tracking-tighter">Instructor</p>
-            <p class="font-bold text-lg dark:text-white leading-none">Eng / Rabab Refaat</p>
-          </div>
-          <div class="ml-auto text-right">
-            <p class="text-zinc-500 dark:text-zinc-400 text-xs uppercase tracking-tighter">Price</p>
-            <p class="text-3xl font-black text-yellow-600 dark:text-yellow-500 tracking-tighter">$160</p>
-          </div>
-        </div>
-
-        <h1>course details</h1>
-
-        <div class="space-y-4">
-          <h3 class="text-xl font-bold text-zinc-900 dark:text-white">The Beginning of the Journey</h3>
-          <p class="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed">
-            At <span class="font-bold text-yellow-600">Horus Academy</span>, we don’t start with coding. We start with understanding. Students explore how a computer actually works — discovering what happens behind the screen and how hardware and software work together.
-          </p>
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-xl font-bold text-zinc-900 dark:text-white">What Students Learn</h3>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
-              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> Hardware vs. Software
-            </li>
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
-              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> CPU, RAM & Storage
-            </li>
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
-              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> Windows / Linux Basics
-            </li>
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
-              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> Files Management
-            </li>
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300 sm:col-span-2 font-bold text-yellow-600 dark:text-yellow-500">
-              <i class="fa-solid fa-gamepad"></i> How Apps & Games Work
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-6 bg-yellow-500/5 border border-yellow-500/20 rounded-3xl group">
-          <h3 class="text-lg font-bold text-yellow-600 dark:text-yellow-500 flex items-center gap-2 mb-2">
-            <span class="text-2xl">🎯</span> Final Project
-          </h3>
-          <p class="text-zinc-800 dark:text-zinc-200">
-            Create a presentation titled: <span class="italic font-bold">“How Does a Game Work?”</span>
-          </p>
-        </div>
-
-        <button class="w-full py-5 bg-yellow-500 text-black font-black rounded-2xl shadow-xl shadow-yellow-500/20 hover:scale-[1.02] active:scale-95 transition-all">
-          Enroll in this Level
-        </button>
-
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
 <section dir="rtl" class="min-h-screen pt-32 mt-28 pb-16 bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
   <div class="max-w-5xl mx-auto px-6">
     
@@ -92,62 +5,78 @@
       <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i> العودة إلى الدورات
     </a>
 
+    <ng-container *ngIf="course$ | async as course; else loading">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-right">
       
       <div class="rounded-[3rem] overflow-hidden shadow-2xl border border-zinc-100 dark:border-zinc-800 h-fit">
-        <img src="/assets/images/coursesImgs/tracks.png" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="صورة الدورة">
+        <img [src]="course.imageUrl" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" [alt]="course.title">
       </div>
 
       <div class="space-y-8">
         <div>
           <span class="px-4 py-2 bg-yellow-500/10 text-yellow-600 dark:text-yellow-500 rounded-full text-xs font-bold border border-yellow-500/20 uppercase tracking-widest">
-            المستوى 0 – إجباري
+            {{ course.level }}
           </span>
           <h1 class="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white leading-tight mt-4">
-            أساسيات الحاسوب
+            {{ course.title }}
           </h1>
+          <p class="text-zinc-700 dark:text-zinc-300 mt-4 text-lg leading-relaxed">
+            {{ course.description }}
+          </p>
           <p class="text-zinc-500 dark:text-zinc-400 mt-2 flex items-center gap-2 font-medium">
-            <i class="fa-regular fa-clock text-yellow-500"></i> المدة: 1 – 1.5 شهر
+            <i class="fa-regular fa-clock text-yellow-500"></i> المدة: {{ course.duration }}
           </p>
         </div>
 
         <div class="flex items-center gap-4 py-6 border-y border-zinc-100 dark:border-zinc-800">
-          <img src="/assets/images/instructors/rabab.jpg" class="w-14 h-14 rounded-2xl border-2 border-yellow-500 object-cover" alt="المحاضر">
-          <div>
-            <p class="text-zinc-500 dark:text-zinc-400 text-xs uppercase tracking-tighter">المحاضر</p>
-            <p class="font-bold text-lg dark:text-white leading-none">م. رباب رفعت</p>
-          </div>
-          <div class="mr-auto text-left"> <p class="text-zinc-500 dark:text-zinc-400 text-xs uppercase tracking-tighter">السعر</p>
-            <p class="text-3xl font-black text-yellow-600 dark:text-yellow-500 tracking-tighter">160$</p>
+          <div class="mr-auto text-left">
+            <p class="text-zinc-500 dark:text-zinc-400 text-xs uppercase tracking-tighter">السعر</p>
+            <p class="text-3xl font-black text-yellow-600 dark:text-yellow-500 tracking-tighter">{{ course.price }}$</p>
           </div>
         </div>
 
         <div class="space-y-4">
-          <h3 class="text-xl font-bold text-zinc-900 dark:text-white">بداية الرحلة</h3>
-          <p class="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed">
-            في <span class="font-bold text-yellow-600">أكاديمية حورس</span>، لا نبدأ بكتابة الكود مباشرة. بل نبدأ بالفهم. يستكشف الطلاب كيف يعمل الكمبيوتر بالفعل — ويكتشفون ما يحدث خلف الشاشة وكيف تتكامل الأجهزة (Hardware) والبرمجيات (Software) معاً.
+          <h3 class="text-xl font-bold text-zinc-900 dark:text-white">عن الدورة</h3>
+          <p class="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed whitespace-pre-line">
+            {{ course.aboutCourse }}
           </p>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-xl font-bold text-zinc-900 dark:text-white">المتطلبات</h3>
+          <ul class="space-y-3">
+            <li *ngFor="let r of course.requirements"
+              class="flex items-start gap-3 p-3 bg-white dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800 rounded-2xl text-zinc-700 dark:text-zinc-300">
+              <i class="fa-solid fa-circle-check text-yellow-500 mt-1"></i>
+              <span>{{ r }}</span>
+            </li>
+          </ul>
         </div>
 
         <div class="space-y-4">
           <h3 class="text-xl font-bold text-zinc-900 dark:text-white">ماذا سيتعلم الطلاب؟</h3>
           <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
-              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> المكونات المادية والبرمجيات
-            </li>
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
-              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> المعالج، الرام، ووحدات التخزين
-            </li>
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
-              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> أساسيات ويندوز / لينكس
-            </li>
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
-              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> إدارة الملفات وتنظيمها
-            </li>
-            <li class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300 sm:col-span-2 font-bold text-yellow-600 dark:text-yellow-500">
-              <i class="fa-solid fa-gamepad"></i> كيف تعمل التطبيقات والألعاب؟
+            <li *ngFor="let o of course.learningOutcomes"
+              class="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-xl text-zinc-700 dark:text-zinc-300">
+              <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> {{ o }}
             </li>
           </ul>
+        </div>
+
+        <div class="space-y-6">
+          <h3 class="text-xl font-bold text-zinc-900 dark:text-white">محتوى الدورة (المنهج)</h3>
+
+          <div *ngFor="let ch of course.curriculum" class="p-6 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800 rounded-3xl">
+            <h4 class="text-lg font-black text-zinc-900 dark:text-white mb-4">
+              {{ ch.chapterTitle }}
+            </h4>
+            <ul class="space-y-2">
+              <li *ngFor="let lesson of ch.lessons" class="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                <span class="w-2 h-2 bg-yellow-500 rounded-full mt-2"></span>
+                <span>{{ lesson }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="p-6 bg-yellow-500/5 border border-yellow-500/20 rounded-3xl group">
@@ -159,11 +88,52 @@
           </p>
         </div>
 
-        <button class="w-full py-5 bg-yellow-500 text-black font-black rounded-2xl shadow-xl shadow-yellow-500/20 hover:scale-[1.02] active:scale-95 transition-all">
-          سجل الآن في هذا المستوى
-        </button>
+        <form [formGroup]="form" (ngSubmit)="submit(course.slug)" class="space-y-4">
+          <div>
+            <label class="block mb-2 text-sm font-bold text-zinc-700 dark:text-zinc-200">الاسم</label>
+            <input
+              formControlName="studentName"
+              type="text"
+              class="w-full py-4 px-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              placeholder="اكتب اسمك"
+              [disabled]="isSubmitting"
+            />
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-bold text-zinc-700 dark:text-zinc-200">رقم الهاتف</label>
+            <input
+              formControlName="phoneNumber"
+              type="tel"
+              class="w-full py-4 px-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              placeholder="مثال: +201234567890"
+              [disabled]="isSubmitting"
+            />
+          </div>
+
+          <div *ngIf="submitSuccessMessage" class="p-4 rounded-2xl bg-green-500/10 border border-green-500/30 text-green-700 dark:text-green-400 font-semibold">
+            {{ submitSuccessMessage }}
+          </div>
+          <div *ngIf="submitErrorMessage" class="p-4 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-700 dark:text-red-400 font-semibold">
+            {{ submitErrorMessage }}
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-5 bg-yellow-500 text-black font-black rounded-2xl shadow-xl shadow-yellow-500/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+            [disabled]="isSubmitting"
+          >
+            {{ isSubmitting ? 'جارٍ الإرسال...' : 'سجل الآن في هذا المستوى' }}
+          </button>
+        </form>
 
       </div>
     </div>
+    </ng-container>
+    <ng-template #loading>
+      <div class="text-center text-zinc-600 dark:text-zinc-300 font-semibold py-12">
+        جاري تحميل تفاصيل الكورس...
+      </div>
+    </ng-template>
   </div>
 </section>
