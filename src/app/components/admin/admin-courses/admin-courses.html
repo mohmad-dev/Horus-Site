@@ -47,14 +47,14 @@
     </table>
   </div>
 
-  <div *ngIf="isModalOpen" class="modal-backdrop" (click)="closeModal()"></div>
-  <div *ngIf="isModalOpen" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-header">
-      <div class="modal-title">{{ editingId ? 'تعديل كورس' : 'إضافة كورس جديد' }}</div>
-      <button class="icon" type="button" (click)="closeModal()">✕</button>
-    </div>
+  <div *ngIf="isModalOpen" class="modal-overlay" role="dialog" aria-modal="true" (click)="closeModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title">{{ editingId ? 'تعديل كورس' : 'إضافة كورس جديد' }}</div>
+        <button class="modal-close" type="button" (click)="closeModal()" aria-label="Close">✕</button>
+      </div>
 
-    <form class="modal-body" [formGroup]="form" (ngSubmit)="submit()">
+      <form class="modal-body" [formGroup]="form" (ngSubmit)="submit()">
       <div class="grid">
         <label class="field">
           <span>العنوان</span>
@@ -162,7 +162,8 @@
           {{ isSubmitting ? 'جارٍ الحفظ...' : (editingId ? 'حفظ التعديل' : 'إنشاء الكورس') }}
         </button>
       </div>
-    </form>
+      </form>
+    </div>
   </div>
 
 </div>
