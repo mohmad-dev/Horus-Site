@@ -1,0 +1,248 @@
+.admin-wrap {
+  padding: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  font-weight: 800;
+}
+
+.sep {
+  opacity: 0.5;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.9;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: right;
+  vertical-align: top;
+}
+
+.title-cell .t {
+  font-weight: 700;
+}
+.title-cell .sub {
+  opacity: 0.65;
+  font-size: 12px;
+}
+
+.actions-col {
+  width: 190px;
+  white-space: nowrap;
+}
+
+.btn {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn.small {
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-inline-start: 8px;
+}
+
+.btn.primary {
+  background: #f6c343;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.btn.secondary {
+  background: #f5f5f5;
+}
+
+.btn.danger {
+  background: #ffe7e7;
+  border-color: rgba(255, 0, 0, 0.15);
+}
+
+.alert {
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin: 10px 0;
+  font-weight: 700;
+}
+.alert.error {
+  background: #ffe7e7;
+}
+.alert.success {
+  background: #e8fff0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 40;
+}
+
+.modal {
+  position: fixed;
+  z-index: 50;
+  inset-inline-start: 50%;
+  top: 6vh;
+  transform: translateX(-50%);
+  width: min(980px, calc(100vw - 24px));
+  max-height: 88vh;
+  overflow: auto;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.modal-title {
+  font-weight: 900;
+}
+.icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.modal-body {
+  padding: 14px 16px 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field span {
+  font-weight: 800;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-weight: 900;
+}
+
+.list .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.grow {
+  flex: 1;
+}
+
+.chapters {
+  display: grid;
+  gap: 12px;
+}
+
+.chapter {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.chapter-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.lessons .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px 16px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin-top: 10px;
+}
+

@@ -1,0 +1,169 @@
+<div class="admin-wrap">
+  <div class="topbar">
+    <div class="left">
+      <a routerLink="/" class="link">الرئيسية</a>
+      <span class="sep">/</span>
+      <span class="title">لوحة الإدارة - الكورسات</span>
+    </div>
+    <div class="right">
+      <a routerLink="/admin/leads" class="btn secondary">طلبات التسجيل</a>
+      <button class="btn secondary" type="button" (click)="logout()">تسجيل خروج</button>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn primary" type="button" (click)="openCreate()">إضافة كورس جديد</button>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="alert success">{{ successMessage }}</div>
+
+  <div class="card">
+    <table class="table" aria-label="Courses">
+      <thead>
+        <tr>
+          <th>العنوان</th>
+          <th>السعر</th>
+          <th>المستوى</th>
+          <th>التصنيف</th>
+          <th class="actions-col">إجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of courses$ | async">
+          <td class="title-cell">
+            <div class="t">{{ c.title }}</div>
+            <div class="sub">/{{ c.slug }}</div>
+          </td>
+          <td>{{ c.price }}</td>
+          <td>{{ c.level }}</td>
+          <td>{{ c.category }}</td>
+          <td class="actions-col">
+            <button class="btn small" type="button" (click)="openEdit(c)">تعديل</button>
+            <button class="btn small danger" type="button" (click)="delete(c)">حذف</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="isModalOpen" class="modal-backdrop" (click)="closeModal()"></div>
+  <div *ngIf="isModalOpen" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-header">
+      <div class="modal-title">{{ editingId ? 'تعديل كورس' : 'إضافة كورس جديد' }}</div>
+      <button class="icon" type="button" (click)="closeModal()">✕</button>
+    </div>
+
+    <form class="modal-body" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="grid">
+        <label class="field">
+          <span>العنوان</span>
+          <input formControlName="title" type="text" placeholder="عنوان الكورس" />
+        </label>
+
+        <label class="field">
+          <span>Slug</span>
+          <input formControlName="slug" type="text" placeholder="مثال: web-design-basics" />
+        </label>
+
+        <label class="field">
+          <span>imageUrl</span>
+          <input formControlName="imageUrl" type="url" placeholder="https://..." />
+        </label>
+
+        <label class="field">
+          <span>التصنيف</span>
+          <select formControlName="category">
+            <option *ngFor="let x of categories" [value]="x">{{ x }}</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>السعر</span>
+          <input formControlName="price" type="number" min="0" step="1" />
+        </label>
+
+        <label class="field">
+          <span>المستوى</span>
+          <select formControlName="level">
+            <option *ngFor="let x of levels" [value]="x">{{ x }}</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>المدة</span>
+          <input formControlName="duration" type="text" placeholder="مثال: 3 أشهر" />
+        </label>
+
+        <label class="field span-2">
+          <span>وصف قصير</span>
+          <input formControlName="description" type="text" placeholder="ملخص قصير" />
+        </label>
+
+        <label class="field span-2">
+          <span>عن الكورس</span>
+          <textarea formControlName="aboutCourse" rows="4" placeholder="وصف تفصيلي"></textarea>
+        </label>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <div class="section-title">مخرجات التعلّم</div>
+          <button class="btn small" type="button" (click)="addLearningOutcome()">+ إضافة</button>
+        </div>
+        <div class="list">
+          <div class="row" *ngFor="let ctrl of learningOutcomes.controls; let i = index">
+            <input class="grow" [formControl]="ctrl" placeholder="عنصر" />
+            <button class="btn small danger" type="button" (click)="removeLearningOutcome(i)">حذف</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <div class="section-title">المتطلبات</div>
+          <button class="btn small" type="button" (click)="addRequirement()">+ إضافة</button>
+        </div>
+        <div class="list">
+          <div class="row" *ngFor="let ctrl of requirements.controls; let i = index">
+            <input class="grow" [formControl]="ctrl" placeholder="عنصر" />
+            <button class="btn small danger" type="button" (click)="removeRequirement(i)">حذف</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <div class="section-title">المنهج (Curriculum)</div>
+          <button class="btn small" type="button" (click)="addChapter()">+ إضافة فصل</button>
+        </div>
+
+        <div class="chapters">
+          <div class="chapter" *ngFor="let ch of curriculum.controls; let ci = index" [formGroup]="ch">
+            <div class="chapter-head">
+              <input class="grow" formControlName="chapterTitle" placeholder="عنوان الفصل" />
+              <button class="btn small danger" type="button" (click)="removeChapter(ci)">حذف الفصل</button>
+            </div>
+
+            <div class="lessons">
+              <div class="row" *ngFor="let l of lessonsAt(ci).controls; let li = index">
+                <input class="grow" [formControl]="l" placeholder="درس" />
+                <button class="btn small danger" type="button" (click)="removeLesson(ci, li)">حذف</button>
+              </div>
+              <button class="btn small" type="button" (click)="addLesson(ci)">+ إضافة درس</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn secondary" type="button" (click)="closeModal()">إلغاء</button>
+        <button class="btn primary" type="submit" [disabled]="isSubmitting">
+          {{ isSubmitting ? 'جارٍ الحفظ...' : (editingId ? 'حفظ التعديل' : 'إنشاء الكورس') }}
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>
+

@@ -1,5 +1,12 @@
 import { z } from 'zod';
 
+const curriculumChapterSchema = z
+  .object({
+    chapterTitle: z.string().trim().min(1).max(200),
+    lessons: z.array(z.string().trim().min(1).max(200)).min(1).max(500),
+  })
+  .strict();
+
 export const createCourseSchema = z
   .object({
     title: z.string().trim().min(2).max(200),
@@ -27,14 +34,7 @@ export const createCourseSchema = z
       .min(1)
       .max(200),
     curriculum: z
-      .array(
-        z
-          .object({
-            chapterTitle: z.string().trim().min(1).max(200),
-            lessons: z.array(z.string().trim().min(1).max(200)).min(1).max(500),
-          })
-          .strict(),
-      )
+      .array(curriculumChapterSchema)
       .min(1)
       .max(200),
     instructor: z.string().trim().optional(),
@@ -42,4 +42,10 @@ export const createCourseSchema = z
   .strict();
 
 export type CreateCourseInput = z.infer<typeof createCourseSchema>;
+
+export const updateCourseSchema = createCourseSchema.partial().strict().refine((v) => Object.keys(v).length > 0, {
+  message: 'At least one field is required',
+});
+
+export type UpdateCourseInput = z.infer<typeof updateCourseSchema>;
 
