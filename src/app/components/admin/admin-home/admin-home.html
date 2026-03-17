@@ -1,0 +1,30 @@
+<section dir="rtl" class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <span class="title">لوحة الإدارة</span>
+      <span class="subtitle">اختر القسم الذي تريد إدارته</span>
+    </div>
+
+    <div class="actions">
+      <a routerLink="/" class="btn secondary">الرجوع للموقع</a>
+      <button type="button" class="btn secondary" (click)="logout()">تسجيل خروج</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">👥</div>
+      <div class="card-title">طلبات التسجيل</div>
+      <div class="card-desc">عرض وإدارة طلبات تسجيل الطلاب</div>
+      <a routerLink="/admin/leads" class="btn primary full">الدخول</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">📚</div>
+      <div class="card-title">إدارة الكورسات</div>
+      <div class="card-desc">إضافة وتعديل وحذف الكورسات</div>
+      <a routerLink="/admin/courses" class="btn primary full">الدخول</a>
+    </div>
+  </div>
+</section>
+

@@ -5,6 +5,7 @@ import { Courses } from './components/courses/courses/courses';
 import { AllCourses } from './components/courses/allCourses/all-courses/all-courses';
 import { AdminDashboard } from './components/admin/admin-dashboard/admin-dashboard';
 import { AdminCoursesPage } from './components/admin/admin-courses/admin-courses';
+import { AdminHomePage } from './components/admin/admin-home/admin-home';
 import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {
         path: 'admin',
         children: [
+            { path: '', component: AdminHomePage, canActivate: [adminGuard], title: 'لوحة الإدارة' },
             { path: 'leads', component: AdminDashboard, canActivate: [adminGuard], title: 'لوحة الإدارة | الطلبات' },
             { path: 'courses', component: AdminCoursesPage, canActivate: [adminGuard], title: 'لوحة الإدارة | الكورسات' },
         ],

@@ -18,34 +18,56 @@
   <div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
   <div *ngIf="successMessage" class="alert success">{{ successMessage }}</div>
 
-  <div class="card">
-    <table class="table" aria-label="Courses">
-      <thead>
-        <tr>
-          <th>العنوان</th>
-          <th>السعر</th>
-          <th>المستوى</th>
-          <th>التصنيف</th>
-          <th class="actions-col">إجراءات</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let c of courses$ | async">
-          <td class="title-cell">
-            <div class="t">{{ c.title }}</div>
-            <div class="sub">/{{ c.slug }}</div>
-          </td>
-          <td>{{ c.price }}</td>
-          <td>{{ c.level }}</td>
-          <td>{{ c.category }}</td>
-          <td class="actions-col">
-            <button class="btn small" type="button" (click)="openEdit(c)">تعديل</button>
-            <button class="btn small danger" type="button" (click)="delete(c)">حذف</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <ng-container *ngIf="courses$ | async as courses">
+    <!-- Desktop table -->
+    <div class="card desktop-only">
+      <table class="table" aria-label="Courses">
+        <thead>
+          <tr>
+            <th>العنوان</th>
+            <th>السعر</th>
+            <th>المستوى</th>
+            <th>التصنيف</th>
+            <th class="actions-col">إجراءات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of courses">
+            <td class="title-cell">
+              <div class="t">{{ c.title }}</div>
+              <div class="sub">/{{ c.slug }}</div>
+            </td>
+            <td>{{ c.price }}</td>
+            <td>{{ c.level }}</td>
+            <td>{{ c.category }}</td>
+            <td class="actions-col">
+              <button class="btn small" type="button" (click)="openEdit(c)">تعديل</button>
+              <button class="btn small danger" type="button" (click)="delete(c)">حذف</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile cards -->
+    <div class="mobile-only">
+      <div class="course-card-mobile" *ngFor="let c of courses">
+        <div class="m-title">{{ c.title }}</div>
+        <div class="m-sub">/{{ c.slug }}</div>
+
+        <div class="m-meta">
+          <span class="pill"><b>السعر</b> {{ c.price }}</span>
+          <span class="pill"><b>المستوى</b> {{ c.level }}</span>
+          <span class="pill"><b>التصنيف</b> {{ c.category }}</span>
+        </div>
+
+        <div class="m-actions">
+          <button class="btn primary full" type="button" (click)="openEdit(c)">تعديل</button>
+          <button class="btn danger full" type="button" (click)="delete(c)">حذف</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 
   <div *ngIf="isModalOpen" class="modal-overlay" role="dialog" aria-modal="true" (click)="closeModal()">
     <div class="modal-box" (click)="$event.stopPropagation()">
