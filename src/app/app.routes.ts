@@ -12,6 +12,11 @@ export const routes: Routes = [
     {path : 'courses' , component : Courses , title : 'كورسات'} ,
     { path: 'course-details/:slug', component: CourseDetails, title: 'تفاصيل الكورس' },
     {path: 'all-courses' , component : AllCourses , title : 'كل الكورسات' },
-    { path: 'admin/leads', component: AdminDashboard, canActivate: [adminGuard], title: 'لوحة الإدارة | الطلبات' },
+    {
+        path: 'admin',
+        children: [
+            { path: 'leads', component: AdminDashboard, canActivate: [adminGuard], title: 'لوحة الإدارة | الطلبات' },
+        ],
+    },
     { path: '**', redirectTo: '' }
 ];

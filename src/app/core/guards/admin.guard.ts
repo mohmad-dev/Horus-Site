@@ -7,6 +7,10 @@ export const adminGuard: CanActivateFn = () => {
   const adminKey = inject(AdminKeyService);
   const router = inject(Router);
 
+  // During SSR there is no `window` to prompt; allow render and let the page
+  // handle missing key gracefully on the client.
+  if (typeof window === 'undefined') return true;
+
   const existing = adminKey.get();
   if (existing && existing.trim().length > 0) return true;
 

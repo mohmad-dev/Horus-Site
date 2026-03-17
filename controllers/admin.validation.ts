@@ -3,6 +3,7 @@ import { z } from 'zod';
 export const createCourseSchema = z
   .object({
     title: z.string().trim().min(2).max(200),
+    slug: z.string().trim().min(1).max(220).optional(),
     imageUrl: z
       .string()
       .trim()

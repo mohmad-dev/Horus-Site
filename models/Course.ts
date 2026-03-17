@@ -245,19 +245,18 @@ const CourseSchema = new Schema<Course>(
 
 CourseSchema.index({ slug: 1 }, { unique: true });
 
-(CourseSchema as any).pre('validate', async function preValidate(this: CourseDocument, next: any) {
-  try {
-    const doc = this as CourseDocument;
-    const model = doc.constructor as Model<Course>;
+(CourseSchema as any).pre('validate', async function preValidate(this: CourseDocument) {
+  const doc = this as CourseDocument;
+  const model = doc.constructor as Model<Course>;
 
-    if (doc.isNew || doc.isModified('title') || !doc.slug) {
-      const base = makeBaseSlug(doc.title);
-      doc.slug = await ensureUniqueSlug(doc, model, base);
-    }
+  // Respect an explicitly-provided slug on creation; only generate when missing
+  // or when title changes without an accompanying slug change.
+  const shouldGenerateSlug =
+    !doc.slug || (doc.isModified('title') && !doc.isModified('slug'));
 
-    next();
-  } catch (err) {
-    next(err as any);
+  if (shouldGenerateSlug) {
+    const base = makeBaseSlug(doc.title);
+    doc.slug = await ensureUniqueSlug(doc, model, base);
   }
 });
 
